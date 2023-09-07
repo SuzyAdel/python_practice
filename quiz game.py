@@ -1,6 +1,29 @@
 #bro code practice 2 : quiz game 
+#--------------------------------------------
+def score(correct_guesses,guesses):
+    print("results!!")
+    print("correct answeres:", end=" ")
+    for i in questions:
+        print(questions.get(i), end=" ") #dictionary
+     
+    print("your guesses:", end=" ")
+    for i in guesses:
+        print(i, end=" ") # list 
+    
+    res=int(correct_guesses/len(questions))*100
+    print("your result is",res,"%") #or + str(res) +
+
+#--------------------------------------------
+def play_again():
+    response=input("Do you want to play again? Y/N").upper
+    if response== "Y":
+        return True 
+    else:
+        return False 
+
+
 def new_game():
-    guesses[]
+    guesses=[]
     correct_guesses=0
     question_number=1
 
@@ -19,8 +42,8 @@ def new_game():
     correct_guesses += check
     question_number +=1 
 
-score(correct_guesses,guesses)
-play_again()
+    s=score(correct_guesses,guesses)
+    p=play_again()
 
 #--------------------------------------------
 def check(answer,guess):
@@ -30,27 +53,9 @@ def check(answer,guess):
     else:
         print('incorrect')
         return 0
-#--------------------------------------------
-def score(correct_guesses,guesses):
-    print("results!!")
-    print("correct answeres:", end=" ")
-    for i in questions:
-        print(questions.get(i), end=" ") #dictionary
-     
-    print("your guesses:", end=" ")
-    for i in guesses:
-        print(i, end=" ") # list 
+
     
-    res=int(correct_guesses/len(questions))*100
-    print("your result is",res,"%") #or + str(res) +
-    
-#--------------------------------------------
-def play_again():
-    response=input("Do you want to play again? Y/N").upper
-    if response== "Y":
-        return True 
-    else:
-        return False 
+
 #--------------------------------------------
 questions={
     "what is the largest animal in the world?": "A",
