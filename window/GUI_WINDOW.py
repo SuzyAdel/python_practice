@@ -21,12 +21,38 @@ label=Label(window,text="LETS START CODING!",
 label.pack() #puts anywhere
 #label.place(x=100,y=100), cordinates
 
+#TextBOX
+def submit():
+    comment=entry.get()
+    print("comment:"+ comment)
+    entry.config(state=DISABLED)
+
+def delete():
+    entry.delete(0,END)
+
+def backspace():
+    entry.delete((len(entry.get()))-1,END)
+
+global entry
+entry= Entry(window,font=("Arial",50))
+entry.insert(0,"leave a comment")
+entry.pack(side=LEFT)
+
+submit_button=Button(window,text="submit",command=submit)
+submit_button.pack(side=LEFT)
+
+delete_button=Button(window,text="delete",command=delete)
+delete_button.pack(side=LEFT)
+
+back_space=Button(window,text="back",command=backspace)
+back_space.pack(side=LEFT)
+
 #creating button + click & photo
 count=0
 def click():
     global count
     count+=1
-    print(count)
+    print(count,"likes")
 photo2=PhotoImage(file="like.png")
 button=Button(window,text="Like button",command=click,
               font=("comic Sans",30),
@@ -36,6 +62,5 @@ button=Button(window,text="Like button",command=click,
               state=ACTIVE,
               image=photo2, compound=BOTTOM)
 button.pack()
-
 
 window.mainloop()
