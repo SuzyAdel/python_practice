@@ -12,7 +12,7 @@ window.config(background="#5cfcff")
 photo= PhotoImage(file='person.png') #adding a label and main photo
 label=Label(window,text="LETS START CODING!",
             font=('Arial',40,'bold'),
-            fg='blue',bg="white",
+            fg='blue',bg="black",
             relief=RAISED,bd=10,
             padx=20,pady=20,
             image= photo, 
@@ -46,6 +46,37 @@ delete_button.pack(side=LEFT)
 
 back_space=Button(window,text="back",command=backspace)
 back_space.pack(side=LEFT)
+
+#checkbox/check button
+def display():
+    if(x.get()==1):
+        print('agreed')
+    else:
+        print('disagreed')
+
+x=IntVar()
+check_button=Checkbutton(window,text='Do you agree?',
+                         font=('Arail',20),
+                         variable=x,onvalue=1,offvalue=0,
+                         command=display)
+check_button.pack()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #creating button + click & photo
 count=0
